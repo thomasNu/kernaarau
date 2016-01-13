@@ -1,0 +1,52 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+<div{f:if(condition: follow, then: ' class="follow-on-call"')}>
+	<f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index', search: ''}" /> 
+</div>
+<table id="ext" border="0" cellspacing="0" cellpadding="2">
+	<colgroup>
+		<col width="130">
+		<col width="342">
+		<col width="120">
+		<col width="120">
+	</colgroup>
+  	<tr>
+		<f:for each="{ths}" as="th">
+            <th>{th}</th>
+        </f:for>
+  	</tr>
+	<f:for each="{products}" as="prod" iteration="line">
+	  	<tr id="t{prod.uid}">
+			<td {f:if(condition: line.isOdd, then: 'class="zebra"')}>
+                {ka:productLinks(code: '*{prod.code}', links: prod.links, columns: prod.columns, descr: prod.description, width: '122')}
+            </td>
+			<td {f:if(condition: line.isOdd, then: 'class="zebra"')}>
+                {prod.description}
+            </td>
+			<td {f:if(condition: line.isOdd, then: 'class="zebra"')}>
+                {ka:productLinks(code: '+{prod.code}', links: prod.links, columns: prod.columns, descr: prod.description)}
+            </td>
+			<td {f:if(condition: line.isOdd, then: 'class="zebra"')}>
+                {ka:productLinks(code: '-{prod.code}', links: prod.links, columns: prod.columns, descr: prod.description)}
+            </td>
+	  	</tr>
+	</f:for>
+	<f:if condition="{products->f:count()} == 0">
+		<tr>
+			<td class="zebra"><b><span class="red">{search}</span></b></td>
+			<td class="zebra" colspan="3"><b><span class="red">Keine Suchergebnisse</span></b></td>
+		</tr>
+		<tr>
+			<td><b>Suchregeln</b></td>
+			<td colspan="3">- Sucht die Eingabe innerhalb von Produktbezeichnung und Beschreibung<br />
+				- Gross- und Kleinschreibung wird nicht berücksichtigt<br />
+				- Eingabe bis zu 3 Zeichen: Suche nur im Anfang der Produktbezeichnung<br />
+				- Eingabe 1 oder 0 Zeichen: Produkte gemäss alphabetischer Auswahl oder alle (A-Z)<br />
+				- Tipp: allgemeine Suche mit 4 Zeichen beginnen, dann ev. verlängern</td>
+		</tr>
+	</f:if>
+	
+</table>
+<div id="alpha-bottom">
+	<f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index', search: ''}" /><br />&nbsp;<br /> 
+</div>
+<div id="table-updated">{updated->f:cObject(typoscriptObjectPath: 'lib.tableUpdated')}</div>

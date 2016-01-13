@@ -1,0 +1,41 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+
+<div{f:if(condition: follow, then: ' class="follow-on-call"')}>
+	<f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index'}" /> 
+</div>
+<table id="ext" border="0" cellspacing="0" cellpadding="2">
+	<colgroup>
+		<col width="150">
+		<col width="412">
+		<col width="150">
+	</colgroup>
+  	<tr>
+		<f:for each="{ths}" as="th">
+            <th>{th}</th>
+        </f:for>
+  	</tr>
+	<f:for each="{terms}" as="term" iteration="line">
+	  	<tr id="t{term.uid}">
+			<td{f:if(condition: line.isOdd, then: ' class="zebra"')}>
+                    {ka:productLinks(code: '*{term.code}', links: term.links, columns: term.columns, descr: term.description, width: '142')}</td>
+			<td{f:if(condition: line.isOdd, then: ' class="zebra"')}>{term.description}</td>
+			<td{f:if(condition: line.isOdd, then: ' class="zebra"')}>
+				<f:for each="{ka:glossaryRefs(code: term.code, columns: term.columns, allowedRefs: refs)}" as="ref">
+					<ka:if condition="'{ref.link}' != ''">
+						<f:then>
+							<f:link.action action="index" arguments="{letter: ref.link}">{ref.text}</f:link.action><br />				
+						</f:then>
+						<f:else>
+							<span class="mark">? {ref.text} ?</span><br />				
+						</f:else>
+					</ka:if>
+				</f:for>
+			</td>
+	  	</tr>
+	</f:for>
+</table>
+<div id="alpha-bottom">
+	<f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index'}" /><br />&nbsp;<br /> 
+</div>
+<div id="table-updated">{updated->f:cObject(typoscriptObjectPath: 'lib.tableUpdated')}</div>
+

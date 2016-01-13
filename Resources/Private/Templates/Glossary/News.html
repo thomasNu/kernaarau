@@ -1,0 +1,23 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+
+<f:if condition="{sections->f:count()} > 1">                                                           
+    <ul class="small">
+        <f:for each="{sections}" as="section" iteration="line">
+    		<f:if condition="{line.index} < {recent}">                                                           
+                <li><f:link.page class="news-list" pageUid="{pid}#c{section.id}"><b>{section.title}</b></f:link.page></li>
+            </f:if>
+        </f:for>
+    </ul>
+    <f:if condition="{sections->f:count()} > {recent}">
+        <div id="ka-archive">
+            <h5>▾ Archiv</h5>
+            <ul class="small">
+                <f:for each="{sections}" as="section" iteration="line">
+            		<f:if condition="{line.index} >= {recent}">                                                           
+                        <li><f:link.page class="news-list" pageUid="{pid}#c{section.id}"><b>{section.title}</b></f:link.page></li>
+                    </f:if>
+                </f:for>
+            </ul>
+        </div>                                                           
+    </f:if>
+</f:if>

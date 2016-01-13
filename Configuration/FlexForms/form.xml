@@ -1,0 +1,38 @@
+<T3DataStructure>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<switchableControllerActions>
+				<TCEforms>
+					<label>Formular wählen:</label>
+					<config>
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Kontakte</numIndex>
+								<numIndex index="1">Form->contact</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">Bestellung</numIndex>
+								<numIndex index="1">Form->order</numIndex>
+							</numIndex>
+						</items>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
+				</TCEforms>
+			</switchableControllerActions>
+			<settings.tableHeaders>
+				<TCEforms>
+					<label>Tabellentitel [durch Kommas getrennt]:</label>
+					<config>
+						<type>input</type>
+						<size>64</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.tableHeaders>
+		</el>
+	</ROOT>
+</T3DataStructure>
+

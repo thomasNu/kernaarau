@@ -1,0 +1,6 @@
+plugin.tx_kernaarau.persistence {
+    storagePid = 137,138,154,164
+    classes {
+        Tx_Kernaarau_Domain_Model_Newspaper.newRecordStoragePid = 164
+	}
+}

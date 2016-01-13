@@ -1,0 +1,33 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+
+<div class="newspaper">
+    <table id="ext" border="0" cellspacing="0" cellpadding="2">
+        <colgroup>
+            <col width="80">
+            <col width="110" span="4">
+        </colgroup>
+        <tr>
+    		<f:for each="{ths}" as="th">
+                <th>{th}</th>
+            </f:for>
+        </tr>
+    	<ka:groupedFor each="{newspapers}" as="newspapersOfThisYear" groupBy="issue:substr(value, 0, 4)" groupKey="thisYear"> 
+            <tr>
+                <td {f:if(condition: '{thisYear} % 2', then: 'class="zebra"')}>{thisYear}</td>
+        		<f:for each="{newspapersOfThisYear}" as="newspaper" iteration="inYear">
+			        <ka:eval code="substr('{newspaper.issue}', 5, 2) . '.' . substr('{newspaper.issue}', 0, 4)" as="id" />
+			        <ka:eval code="'KHZ_' . str_replace('.', '_', '{newspaper.issue}')" as="pdf" />
+                    <td {f:if(condition: '{thisYear} % 2', then: 'class="zebra"')}>
+                        <f:if condition="{newspaper.page} < 255">
+    				        <p><a class="ka-download" href="{settings.filePath}{pdf}.pdf" title="Herunterladen: PDF {newspaper.size}" target="_blank">{id}</a><br />
+                        	<ka:value array="{parts}" key="{id}" as="part" />
+                    		<f:if condition="{part}">
+				                <a href="{settings.filePath}{pdf}_{part.file}.pdf">{part.text}</a></p>
+                            </f:if>
+                        </f:if>
+                    </td>
+                </f:for>
+            </tr>
+        </ka:groupedFor>    
+    </table>
+</div>

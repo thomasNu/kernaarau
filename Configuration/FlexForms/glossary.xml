@@ -1,0 +1,48 @@
+<T3DataStructure>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<switchableControllerActions>
+				<TCEforms>
+					<label>Glossar bzw. News Aktion wählen:</label>
+					<config>
+						<type>select</type>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">Glossar</numIndex>
+								<numIndex index="1">Glossary->index</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">News Artikelliste</numIndex>
+								<numIndex index="1">Glossary->news</numIndex>
+							</numIndex>
+						</items>
+						<maxitems>1</maxitems>
+						<size>1</size>
+					</config>
+				</TCEforms>
+			</switchableControllerActions>
+			<settings.tableHeaders>
+				<TCEforms>
+					<label>Tabellentitel [durch Kommas getrennt]:</label>
+					<config>
+						<type>input</type>
+						<size>64</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.tableHeaders>
+			<settings.numberOfRecentArticles>
+				<TCEforms>
+					<label>Max Anzahl aktuelle Artikel [ohne Archiv, Standard: 10]:</label>
+					<config>
+						<type>input</type>
+						<size>10</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.numberOfRecentArticles>
+		</el>
+	</ROOT>
+</T3DataStructure>
+

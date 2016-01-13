@@ -1,0 +1,18 @@
+<T3DataStructure>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<settings.tableHeaders>
+				<TCEforms>
+					<label>Tabellentitel [durch Kommas getrennt]:</label>
+					<config>
+						<type>input</type>
+						<size>64</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.tableHeaders>
+		</el>
+	</ROOT>
+</T3DataStructure>
+

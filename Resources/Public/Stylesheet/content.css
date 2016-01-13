@@ -1,0 +1,80 @@
+div.csc-default {
+	margin-bottom: 14px;
+	}
+div.indent {
+    padding: 6px 0px 0px 40px;
+	}
+p.align-right {
+    text-align: right;
+	}
+table#ext, table#zebra, table.export {
+	padding: 3px;
+	border: 1px solid #444444;
+	border-radius: 10px;
+	clear: both;
+	}
+table#ext td, table#zebra td, table.export td, p.export {
+	color: black;
+	vertical-align:top;
+	}
+table#ext a, table#zebra a, table.export a {
+	color:#0E00BD; 
+	letter-spacing:0px;
+	}
+table#ext a:hover, table#zebra a:hover, table.export a:hover {
+	color: #800000;
+	text-decoration: underline;
+	}
+table#zebra {
+	margin-bottom: 6px;
+	}
+td.zebra {
+	background-color: #D2DCF2;
+	}
+div.newspaper td, div.newspaper th {
+    text-align: center;
+	}
+.f3-widget-paginator {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	padding-left: 0;
+	margin: 0;
+	}
+.f3-widget-paginator li {
+	float: left;
+	display: block;
+	padding-bottom: 1px;
+	margin: 5px 2px 5px 0;
+	border: 1px solid #444444;
+	border-radius: 4px;
+	}	 
+.f3-widget-paginator li:hover {
+	border-color:#800000;
+	}
+.f3-widget-paginator a:hover {
+	text-decoration:none;
+	}
+div.go-to-top {
+	position: absolute; 
+    top: 0px; 
+    right: 0px;
+    }
+div.go-to-top div.top-button {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #070065;
+    border-radius: 4px;
+    text-align: center;
+    padding-left: 1px;
+	}
+div.go-to-top a:hover {
+ 	text-decoration: none;
+    }
+div.go-to-top div.top-button:hover {
+    border: 1px solid #800000;
+    color: #800000;
+    }
+div.csc-frame-indent6633 {
+    margin-bottom: 14px;
+    }

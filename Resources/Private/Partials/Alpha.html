@@ -1,0 +1,35 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+<ul class="f3-widget-paginator">
+	<f:for each="{letters}" as="letter">
+		<li>
+			<ka:if condition="'{letter.first}' != '{current}'">
+				<f:then>
+					<ka:eval code="strtolower('{letter.first}')" as="first">
+						<f:link.action action="{action}" arguments="{letter: first}">
+							<ka:if condition="'{letter.first}' == '@'">
+								<f:then>
+									A-Z
+								</f:then>
+								<f:else>
+								    {letter.first}
+								</f:else>
+							</ka:if>
+						</f:link.action>
+					</ka:eval>
+				</f:then>
+				<f:else>
+					<span class="red">
+						<ka:if condition="'{letter.first}' == '@'">
+							<f:then>
+								A-Z
+							</f:then>
+							<f:else>
+								{letter.first}
+							</f:else>
+						</ka:if>
+					</span>
+				</f:else>
+			</ka:if>
+		</li>
+	</f:for>
+</ul>

@@ -1,0 +1,23 @@
+<div class="frame">
+    <div class="header shadow">
+        <div class="overview">
+            <f:cObject typoscriptObjectPath="lib.header" />
+        </div>
+        <div class="topmenu">
+            <f:cObject typoscriptObjectPath="lib.topmenuTools" />
+        </div>    
+        <f:cObject typoscriptObjectPath="lib.gallery" />
+    </div>
+    <div class="content shadow">
+        <div class="menuleft">
+            <f:cObject typoscriptObjectPath="lib.menuleft" />
+        </div>
+        <div class="middlecontent">
+            <f:render section="content" />
+        </div>
+        <div class="clear-content"></div>
+    </div>
+    <div class="footer shadow">
+        <f:cObject typoscriptObjectPath="lib.footer" />
+    </div>
+</div>

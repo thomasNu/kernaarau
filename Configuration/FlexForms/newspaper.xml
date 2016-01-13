@@ -1,0 +1,38 @@
+<T3DataStructure>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<settings.tableHeaders>
+				<TCEforms>
+					<label>Tabellentitel [durch Kommas getrennt]:</label>
+					<config>
+						<type>input</type>
+						<size>64</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.tableHeaders>
+			<settings.splitedIssues>
+				<TCEforms>
+					<label>Aufgeteilte Hefte [MM.JJJJLink_Text, ...]:</label>
+					<config>
+						<type>input</type>
+						<size>64</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.splitedIssues>
+			<settings.filePath>
+				<TCEforms>
+					<label>Dateipfad:</label>
+					<config>
+						<type>input</type>
+						<size>32</size>
+						<eval>trim</eval>
+					</config>
+				</TCEforms>
+			</settings.filePath>
+		</el>
+	</ROOT>
+</T3DataStructure>
+

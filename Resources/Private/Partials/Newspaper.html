@@ -1,0 +1,25 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+
+<f:if condition="{id}">
+	<ka:explode content="{id}" glue="#" as="parts" />
+	<ka:value array="{parts}" key="1" as="page" />
+	<f:if condition="{page}">
+        <ka:eval code="'#page={page}'" as="page" />
+    	<ka:value array="{parts}" key="0" as="id" />
+	</f:if>
+    <ka:eval code="substr('{id}', 3, 4) . '.' . substr('{id}', 0, 2)" as="key" />
+	<ka:value array="{pdfs}" key="{key}" as="pdf">
+		<f:if condition="{pdf}">
+			<f:then>
+            	<ka:if condition="!'{page}' && '{pdf.page}'">
+                    <ka:eval code="'#page={pdf.page}'" as="page" />
+            	</ka:if>
+                <ka:eval code="'KHZ_' . str_replace('.', '_', '{key}') . '.pdf{page}'" as="url" />
+				<a class="ka-download" href="{settings.filePath}{url}" title="Herunterladen: PDF {pdf.size}" target="_blank">{id}</a>
+			</f:then>
+			<f:else>
+				<span class="mark">{id}</span>
+			</f:else>
+		</f:if>
+	</ka:value>
+</f:if>

@@ -1,0 +1,34 @@
+{namespace ka=Tx_Kernaarau_ViewHelpers}
+    <p><f:for each="{newspapers}" as="newspaper" iteration="line">
+        {newspaper.issue}|
+    </f:for></p>
+<div{f:if(condition: follow, then: ' class="follow-on-call"')}>
+	<f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index'}" /><br /> 
+</div>
+<table id="ext" border="0" cellspacing="0" cellpadding="2">
+    <colgroup>
+        <col width="220">
+        <col width="75" span="3">
+        <col width="95">
+        <col width="80">
+    </colgroup>
+    <tr>
+		<f:for each="{ths}" as="th">
+            <th>{th}</th>
+        </f:for>
+    </tr>
+    <f:for each="{persons}" as="person" iteration="line">
+        <tr>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}>{person.name}</td>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}><f:render partial="Newspaper" arguments="{id: person.years25, pdfs: pdfs}" /></td>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}><f:render partial="Newspaper" arguments="{id: person.years40, pdfs: pdfs}" /></td>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}><f:render partial="Newspaper" arguments="{id: person.years50, pdfs: pdfs}" /></td>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}><f:render partial="Newspaper" arguments="{id: person.retired, pdfs: pdfs}" /></td>
+            <td {f:if(condition: line.isOdd, then: 'class="zebra"')}><f:render partial="Newspaper" arguments="{id: person.decesed, pdfs: pdfs}" /></td>
+        </tr>
+    </f:for>
+</table>
+<div id="alpha-bottom">
+    <f:render partial="Alpha" arguments="{letters: letters, current: current, action: 'index'}" /><br />&nbsp;<br /> 
+</div>
+<div id="table-updated">{updated->f:cObject(typoscriptObjectPath: 'lib.tableUpdated')}</div>
