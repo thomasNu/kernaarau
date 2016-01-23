@@ -154,14 +154,15 @@ class tx_kernaarau_hooks {
                  $src = $filePath;
              }
  
-	     $fparts = t3lib_div::split_fileref($href);
-         $fsize = filesize(t3lib_div::getFileAbsFileName($href));
-	     $href .= '|Herunterladen: ' . strtoupper($fparts['fileext']) . ' ' . t3lib_div::formatSize($fsize, 'B| kB| MB| GB') . '|*';
+	         $fparts = t3lib_div::split_fileref($href);
+             $imgres = $feObj->cObj->getImgResource($href, array());
+             $fsize = t3lib_div::formatSize(filesize(t3lib_div::getFileAbsFileName($href)), 'B| kB| MB| GB');
+    	     $href .= '|Herunterladen: ' . strtoupper($fparts['fileext']) . ' (' . $imgres[0] . ' x ' . $imgres[1] . ' Pixel, ' . $fsize . ')|*';
       	     $links[0][] = $link;
              $links[1][] = ' href="' . $src . '" title="' . $href . '" target="thePicture"';
 
-        }  // end for ($i = 0; $i < $n; ++$i)      
-        $feObj->content = str_replace($links[0], $links[1], $feObj->content);
+         }  // end for ($i = 0; $i < $n; ++$i)      
+         $feObj->content = str_replace($links[0], $links[1], $feObj->content);
  
 //    } // end if (t3lib_div::inList($settings['remotes'], t3lib_div::getIndpEnv('REMOTE_ADDR')))
      } // end function
